@@ -37,7 +37,7 @@ public sealed class Plugin : LabPlugin
     public override string Author => "Zombie";
 
     /// <inheritdoc />
-    public override Version Version => new Version(0, 0, 2);
+    public override Version Version => new Version(1, 0, 0);
 
     /// <inheritdoc />
     public override Version RequiredApiVersion => new Version(LabApiProperties.CompiledVersion);
