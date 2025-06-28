@@ -2,8 +2,6 @@
 
 ![Downloads](https://img.shields.io/github/downloads/punkroczombie/Heartbeat/total.svg)
 
-> Supports [PlaceholderAPI](https://github.com/PlaceholderAPI-SL/PlaceholderAPI)
-
 ### How do I download this?
 - Go here and download the latest release, [https://github.com/punkroczombie/Heartbeat/releases](https://github.com/punkroczombie/Heartbeat/releases)
 

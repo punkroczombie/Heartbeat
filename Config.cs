@@ -1,4 +1,11 @@
-﻿namespace Heartbeat;
+﻿// -----------------------------------------------------------------------
+// <copyright file="Config.cs" company="Zombie">
+// Copyright (c) Zombie. All rights reserved.
+// Licensed under the CC BY-SA 4.0 license.
+// </copyright>
+// -----------------------------------------------------------------------
+
+namespace Heartbeat;
 
 using System.ComponentModel;
 

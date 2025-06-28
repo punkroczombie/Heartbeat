@@ -1,7 +1,7 @@
 ﻿// -----------------------------------------------------------------------
 // <copyright file="Plugin.cs" company="Zombie">
 // Copyright (c) Zombie. All rights reserved.
-// Licensed under the CC BY-SA 3.0 license.
+// Licensed under the CC BY-SA 4.0 license.
 // </copyright>
 // -----------------------------------------------------------------------
 
@@ -52,12 +52,14 @@ public sealed class Plugin : LabPlugin
         CosturaUtility.Initialize();
         this.LoadConfigs();
         Signal = new HeartbeatSignal();
+        LabAPILogger.Debug("Starting Heartbeat Signal");
         Signal.Start();
     }
 
     /// <inheritdoc />
     public override void Disable()
     {
+        LabAPILogger.Debug("Stopping Heartbeat Signal");
         Signal!.Stop();
         Instance = null;
         Signal = null;
