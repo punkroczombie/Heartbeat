@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net481</TargetFramework>
+        <AssemblyTitle>Heartbeat</AssemblyTitle>
+        <Product>Heartbeat</Product>
+        <Copyright>Copyright © 2025</Copyright>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <DebugSymbols>true</DebugSymbols>
+        <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+        <DebugType>embedded</DebugType>
+        <Nullable>enable</Nullable>
+        <LangVersion>preview</LangVersion>
+        <RestoreAdditionalProjectSources>
+            https://api.nuget.org/v3/index.json;
+            https://nuget.bepinex.dev/v3/index.json
+        </RestoreAdditionalProjectSources>
+        <Platforms>x64;AnyCPU</Platforms>
+        <Configurations>Debug;Release;Local</Configurations>
+        <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+        <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Heartbeat.ruleset</CodeAnalysisRuleSet>
+        <NoWarn>$(NoWarn),1573,1591,1712</NoWarn>
+        <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Local|AnyCPU'">
+        <DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' " />
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' " />
+    <ItemGroup>
+        <Reference Include="PlaceholderAPI" HintPath="$(SL_REFERENCES)\PlaceholderAPI.dll" Private="False" />
+        <Reference Include="Pooling" HintPath="$(SL_REFERENCES)\Pooling.dll" Private="False" />
+        <Reference Include="Assembly-CSharp-firstpass" HintPath="$(SL_REFERENCES)\Assembly-CSharp-firstpass.dll" Private="False" />
+        <Reference Include="Assembly-CSharp" HintPath="$(SL_REFERENCES)\Assembly-CSharp.dll" Private="False" Publicize="True" />
+        <Reference Include="Mirror" HintPath="$(SL_REFERENCES)\Mirror.dll" Private="False" />
+        <Reference Include="CommandSystem.Core" HintPath="$(SL_REFERENCES)\CommandSystem.Core.dll" Private="False" />
+        <Reference Include="UnityEngine.CoreModule" HintPath="$(SL_REFERENCES)\UnityEngine.CoreModule.dll" Private="False" />
+        <Reference Include="UnityEngine.PhysicsModule" HintPath="$(SL_REFERENCES)\UnityEngine.PhysicsModule.dll" Private="False" />
+        <Reference Include="UnityEngine.Networking" HintPath="$(SL_REFERENCES)\UnityEngine.UnityWebRequestModule.dll" Private="False" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="BepInEx.AssemblyPublicizer" Version="0.5.0-beta.1" ExcludeAssets="RUNTIME" />
+        <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.5.0-beta.1" ExcludeAssets="RUNTIME" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
+        <PackageReference Include="Costura.Fody" Version="5.8.0-alpha0098" ExcludeAssets="RUNTIME" PrivateAssets="all" IncludeAssets="runtime; build; compile; native; contentfiles; analyzers; buildtransitive" />
+        <PackageReference Include="Fody" Version="6.8.0" ExcludeAssets="RUNTIME" PrivateAssets="all" IncludeAssets="runtime; build; compile; native; contentfiles; analyzers; buildtransitive" />
+        <PackageReference Include="HarmonyX" Version="2.14.0" />
+        <PackageReference Include="MonoMod.Backports" Version="1.1.2" ExcludeAssets="RUNTIME" />
+        <PackageReference Include="Northwood.LabAPI" Version="1.0.2" ExcludeAssets="RUNTIME" />
+        <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" ExcludeAssets="RUNTIME" />
+        <PackageReference Include="System.Buffers" Version="4.5.1" ExcludeAssets="RUNTIME" />
+        <PackageReference Include="System.Memory" Version="4.5.5" ExcludeAssets="RUNTIME" />
+        <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" ExcludeAssets="RUNTIME" />
+        <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="4.5.3" ExcludeAssets="RUNTIME" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Remove=".editorconfig" />
+        <None Include=".editorconfig">
+          <Link>Resources/..editorconfig</Link>
+        </None>
+        <None Remove="Heartbeat.ruleset" />
+        <None Include="Heartbeat.ruleset" Link="Resources/Heartbeat.ruleset" />
+        <None Remove="NuGet.config" />
+        <None Include="Heartbeat.sln.DotSettings.user" />
+        <None Include="NuGet.config" Link="Resources/NuGet.config" />
+        <None Remove=".gitignore" />
+        <None Include=".gitignore" Link="Resources/.gitignore" />
+        <None Remove=".gitattributes" />
+        <None Include=".gitattributes" Link="Resources/.gitattributes" />
+        <None Remove="README.md" />
+        <None Include="README.md" Link="Resources/README.md" />
+        <None Remove="FodyWeavers.xml" />
+        <None Include="FodyWeavers.xml" Link="Resources/FodyWeavers.xml" />
+        <AdditionalFiles Include="stylecop.json" Link="Resources/stylecop.json" />
+        <EmbeddedResource Include="changelogs.txt" Link="Resources/changelogs.txt"/>
+    </ItemGroup>
+</Project>
